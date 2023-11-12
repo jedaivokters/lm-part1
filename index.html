@@ -13,17 +13,7 @@
             background-image: linear-gradient(to bottom, #063473, #053f7f, #054b8a, #075796, #0b63a1, #156ca9, #1d74b0, #257db8, #3085be, #3a8cc3, #4494c9, #4d9cce);
             font-family: 'Montserrat', Arial,sans-serif;
         }
-        .flex-container {
-            display: flex;
-            flex-wrap: nowrap;
-            background-color: DodgerBlue;
-        }
-        .bgWhite {
-            background-color: white;
-        }
-        .lmLogo {
-            width: 300px;
-        }
+        /* header */
         .header {
             background: #fff;
             color: #223064;
@@ -40,7 +30,7 @@
             position: absolute;
             width: 100%;
         }
-        .header__grid {
+        .header__grid, .footer__grid {
             align-items: center;
             display: flex;
             flex-direction: row;
@@ -70,16 +60,81 @@
             color: green;
             margin-right: 5px;
         }
+
+        /* footer */
+        .footer {
+            background: #fff;
+            color: #223064;
+            min-height: 77px;
+            position: relative;
+            padding-top: 50px;
+            padding-bottom: 60px;
+        }
+        .footer__title {
+            font-weight: bold;
+            margin-top: 5px;
+            font-size: 13px;
+        }
+
+        .footer__menu {
+            margin: 25px 0 10px;
+            display: flex;
+            justify-content: center;
+            flex-grow: 1;
+        }
+
+        .footer__copyright {
+            margin: 25px 0 10px;
+            display: flex;
+            justify-content: center;
+            flex-grow: 1;
+            align-items: center;
+            text-align: center;
+            font-size: .75rem;
+            color: #97a8a7;
+            padding-right: 60px;
+        }
+        .service_meu {
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        .service-menu__item {
+            font-size: .875rem;
+            display: inline-block;
+            list-style: none;
+        }
+
+        .service-menu__link {
+            color: #97a8a7;
+            text-decoration: none;
+        }
+        .service-menu__item:not(:first-child)::before {
+            content: "\f111";
+            font-family: FontAwesome;
+            font-size: 5px;
+            margin-right: 40px;
+            position: relative;
+            top: -2px;
+            margin-left: 30px;
+        }
+
+        /* content */
+        .page {
+            color: white;
+            min-height: calc(100vh);
+        }
         .hero h1 {
             font-weight: 200;
         }
         .review h3 {
             font-weight: 200;
+        }        
+
+        .review--line {
+            border-top: 1px solid white;
         }
-        .page {
-            color: white;
-            min-height: 500px;
-        }
+
         .circular--portrait { 
             width: 100px;
             height: 100px;
@@ -185,8 +240,8 @@
         /* The Modal (background) */
         .modal-overlay {
             display: none;
-            background-color: rgb(0,0,0); /* Fallback color */
-            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+            background-color: rgb(0,0,0);
+            background-color: rgba(0,0,0,0.4);
             position: fixed;
             width: 100%;
             height: 100%;
@@ -195,14 +250,12 @@
         }
         .modal {
             display: none;
-            position: fixed; /* Stay in place */
-            z-index: 1; /* Sit on top */
-            padding-top: 100px; /* Location of the box */
-            /* left: 0;
-            top: 0; */
-            width: 50%; /* Full width */
-            height: 100%; /* Full height */
-            overflow: auto; /* Enable scroll if needed */
+            position: fixed;
+            z-index: 1;
+            padding-top: 100px; 
+            width: 50%;
+            height: 100%; 
+            overflow: auto;
             left: 50%;
             top: 50%;
             transform: translate(-50%, -50%);
@@ -212,7 +265,6 @@
         .modal-content {
             background-color: #fefefe;
             margin: auto;
-            /* padding: 30px; */
             border: 1px solid #888;
             width: 80%;
             color:black;
@@ -248,7 +300,7 @@
         <div class="row mt-3">
             <div class="col">
                 <div class="row">
-                    <div class="ml-2">Enter Zip Code Or City:</div>
+                    <div class="ml-2">Enter Zip Code or City:</div>
                 </div>
                 <div class="row">
                     <div class="input_container--rounded">
@@ -288,9 +340,25 @@
                         <div class="profile--location">Downtown, AK</div>
                     </div>
                     <div class="col">
-                        ....
+                        <div style="display:flex">
+                            <div style="font-weight: 500;">Family Law</div>
+                            <div class="ml-2" style="color: #CD9618">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                        </div>
+                        <div class="mt-2" style="font-style: italic; font-size: 12px;">
+                            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin mattis imperdiet ex, ac consequat velit venenatis sed. Aenean sagittis nunc quis risus..."
+                        </div>
+                        <div class="open_review" data-profle="0" class="d-flex justify-content-end" style="font-size: 12px;color: #ffe896; cursor: pointer;">
+                            Read review <i class="ml-1 fa-solid fa-book"></i>
+                        </div>
                     </div>
                 </div>
+                <hr class="review--line"/>
                 <div class="row mt-3">
                     <div class="col-3 text-center">
                         <div class="circular--portrait "><img src="/images/profiles/2.png" ></div>
@@ -298,9 +366,25 @@
                         <div class="profile--location">Pasadena, CA</div>
                     </div>
                     <div class="col">
-                        ....
+                        <div style="display:flex">
+                            <div style="font-weight: 500;">Job & Employment Law</div>
+                            <div class="ml-2" style="color: #CD9618">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                        </div>
+                        <div class="mt-2" style="font-style: italic; font-size: 12px;">
+                            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin mattis imperdiet ex, ac consequat velit venenatis sed. Aenean sagittis nunc quis risus..."
+                        </div>
+                        <div class="open_review" data-profle="1" class="d-flex justify-content-end" style="font-size: 12px;color: #ffe896; cursor: pointer;">
+                            Read review <i class="ml-1 fa-solid fa-book"></i>
+                        </div>
                     </div>
                 </div>
+                <hr class="review--line"/>
                 <div class="row mt-3">
                     <div class="col-3 text-center">
                         <div class="circular--portrait "><img src="/images/profiles/3.png" ></div>
@@ -308,7 +392,24 @@
                         <div class="profile--location">Galveston, TX</div>
                     </div>
                     <div class="col">
-                        ....
+                        <div class="col">
+                            <div style="display:flex">
+                                <div style="font-weight: 500;">Family Law</div>
+                                <div class="ml-2" style="color: #CD9618">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                </div>
+                            </div>
+                            <div class="mt-2" style="font-style: italic; font-size: 12px;">
+                                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin mattis imperdiet ex, ac consequat velit venenatis sed. Aenean sagittis nunc quis risus..."
+                            </div>
+                            <div class="open_review" data-profle="2" class="d-flex justify-content-end" style="font-size: 12px;color: #ffe896; cursor: pointer;">
+                                Read review <i class="ml-1 fa-solid fa-book"></i>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -429,40 +530,351 @@
                 </div>
             </div>
         </div>
+
+        <div id="review_modal" class="modal">
+            <div class="modal-content">
+                <div id="close3" class="d-flex justify-content-end" style="padding: 10px; cursor: pointer; padding-bottom: 0;">X</div>
+                <div class="modal-body" style="padding-top: 0;">
+                    <div style="font-size: 20px; font-weight: 400;">CLIENT REVIEWS</div>
+                    <hr style="margin-top: .5rem;"/>
+                    <div class="mb-3 d-flex">
+                        <div>
+                            <div class="circular--portrait" style="width: 75px;border: 1px solid gray;height: auto;">
+                                <img id="review_photo" src="" >
+                            </div>
+                        </div>
+                        <div class="ml-2">
+                            <div id="review_name" style="font-size: 20px; font-weight: 400;">--</div>
+                            <div id="review_location" style="font-size: 13px; color:gray">--</div>
+                            <div id="review_law" style="font-size: 14px;">--</div>
+                        </div>
+                    </div>
+                    <div style="font-size: 20px; font-weight: 400;">Rating (29 users) 
+                        <div class="d-inline-block" style="font-size: 15px; color: #CD9618">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i style="color: gray" class="fa-solid fa-star"></i>
+                        </div>
+                    </div>
+                    <hr style="margin-top: .5rem;"/>
+                    
+                    <div style="padding-right: 60px;overflow-y: auto;height: 200px;font-size: 14px;">
+                        <div class="d-flex w-100">
+                            <div style="font-weight: 500;">Overall</div>
+                            <div class="d-flex flex-grow-1 justify-content-end">
+                                <div class="d-inline-block" style="font-size: 15px; color: #CD9618">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i style="color: gray" class="fa-solid fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex w-100">
+                            <div>Responded in a timely manner</div>
+                            <div class="d-flex flex-grow-1 justify-content-end">
+                                <div class="d-inline-block" style="font-size: 15px; color: #CD9618">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i style="color: gray" class="fa-solid fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex w-100">
+                            <div>Answered question clearly</div>
+                            <div class="d-flex flex-grow-1 justify-content-end">
+                                <div class="d-inline-block" style="font-size: 15px; color: #CD9618">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex w-100">
+                            <div>Understood needs</div>
+                            <div class="d-flex flex-grow-1 justify-content-end">
+                                <div class="d-inline-block" style="font-size: 15px; color: #CD9618">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i style="color: gray" class="fa-solid fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex w-100">
+                            <div>Gave complete and clear information</div>
+                            <div class="d-flex flex-grow-1 justify-content-end">
+                                <div class="d-inline-block" style="font-size: 15px; color: #CD9618">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex w-100">
+                            <div>Knowledgeable in legal area</div>
+                            <div class="d-flex flex-grow-1 justify-content-end">
+                                <div class="d-inline-block" style="font-size: 15px; color: #CD9618">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i style="color: gray" class="fa-solid fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex w-100">
+                            <div>Good value for money</div>
+                            <div class="d-flex flex-grow-1 justify-content-end">
+                                <div class="d-inline-block" style="font-size: 15px; color: #CD9618">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex w-100">
+                            <div>Would hire again</div>
+                            <div class="d-flex flex-grow-1 justify-content-end">
+                                <div class="d-inline-block" style="font-size: 15px; color: #CD9618">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i style="color: gray" class="fa-solid fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex w-100">
+                            <div>Would recommend to a friend</div>
+                            <div class="d-flex flex-grow-1 justify-content-end">
+                                <div class="d-inline-block" style="font-size: 15px; color: #CD9618">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="d-flex w-100">
+                            <div>TEST</div>
+                            <div class="d-flex flex-grow-1 justify-content-end">
+                                <div class="d-inline-block" style="font-size: 15px; color: #CD9618">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="d-flex w-100">
+                            <div>TEEST</div>
+                            <div class="d-flex flex-grow-1 justify-content-end">
+                                <div class="d-inline-block" style="font-size: 15px; color: #CD9618">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr />
+                    <div class="d-flex">
+                        <div class="d-inline-block" style="font-size: 12px; color: #CD9618">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            
+                        </div>
+                        <div class="ml-3 font-weight-bold d-flex align-self-center" style="font-size: 13px;">by A. User, 06/10/2016</div>
+                    </div>
+                    <div class="mt-2" style="font-size: 14px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin mattis imperdiet ex, ac consequat velit venenatis sed. Aenean sagittis nunc quis risus</div>
+                    <div id="review_close" class="d-flex w-100 flex-grow-1 justify-content-end mb-3" style="font-size: 13px; color: blue; cursor: pointer;" >CLOSE</div>
+                </div>
+            </div>
+        </div>
         
-        <div class="modal-overlay"></div>
+        
     </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__grid">
+                <div>
+                    <img src="/images/lm-logo.svg" style="width: 200px;">
+                    <div class="footer__title">FIND THE RIGHT LAWYER NOW</div>
+                </div>
+
+                <div class="footer__menu">
+                    <ul class="service-menu">
+                        <li class="service-menu__item">
+                            <a href="/company/user_agreement.html" data-toggle="modal" data-target="#modal-iframe" class="service-menu__link js-modal-iframe-toggle">User Agreement</a>
+                        </li>
+                        <li class="service-menu__item">
+                            <a href="/company/privacy_statement.html" data-toggle="modal" data-target="#modal-iframe" class="service-menu__link js-modal-iframe-toggle">Privacy Policy</a>
+                        </li>
+                        <li class="service-menu__item">
+                            <a href="/sitemap.html" data-toggle="modal" data-target="#modal-iframe" class="service-menu__link js-modal-iframe-toggle">Site Map</a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div >
+                    <img src="//privacy-policy.truste.com/privacy-seal/seal?rid=e5840f6c-4417-46a7-a71d-ebe13bcf17b7" >
+                </div>
+            </div>
+
+            <div style="display: flex;">
+                <div style="display: flex; flex-grow: 1;"></div> <!-- dummy box -->
+                <div class="footer__copyright">
+                    Copyright 1999-2023 LegalMatch. All rights reserved.
+                </div>
+                
+                <div >
+                    <img width="140px" src="/images/bbb.png" >
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div class="modal-overlay"></div>
+
 </body>
 </html>
 
 <script>
+    const lawyerDatas = [
+        {
+            "img": 'images/profiles/1.png',
+            "location" : "Downtown, AK",
+            "name" : "George M.",
+            "law" : "Family Law"
+        },
+        {
+            "img": 'images/profiles/2.png',
+            "location" : "Pasadena, CA",
+            "name" : "Mike J.",
+            "law" : "Job & Employment Law"
+        },
+        {
+            "img": 'images/profiles/3.png',
+            "location" : "Galveston, TX",
+            "name" : "Katarina D.",
+            "law" : "Family Law"
+        }
+    ];
+
+    function toggleDisplay(el, mode) {
+        var element;
+        var setDisplay;
+
+        switch(mode) {
+            case 'class':
+                element = document.getElementsByClassName(el)[0]; //first only
+                elementDisplay = element.style.display;
+                break;
+            case 'id':
+                element = document.getElementById(el);
+                elementDisplay = element.style.display;
+                break;
+        }
+        
+        if (elementDisplay == '' || elementDisplay == 'none') {
+            elementDisplay = 'block';
+        } else {
+            elementDisplay = 'none';
+        }
+
+        element.style.display = elementDisplay;
+    }
+
+
     $( function() {
         $( "#locations" ).autocomplete({
             source: ['Nowhereville, XX 00000']
         });
 
-        $('#category').on('click', function() {
-            $('#category_menu').toggle();
-        });
-
-        $('#other_category').on('click', function() {
-            $('#others, .modal-overlay').toggle();
-        });
-
-        $('.input_container--categories').on('click', function() {
-            let name = $(this).html();
-            $('#step3, .modal-overlay, #category_menu').toggle();
-            $('#category_lawyer').html(name);
-        });
-
-        $('#close1').on('click', function() {
-            $('#step3, .modal-overlay').toggle();
-            $('#category_lawyer').html("");
-        });
-
-        $('#close2').on('click', function() {
-            $('#others, .modal-overlay').toggle();
+        document.getElementById('category').addEventListener('click', function () {
+            toggleDisplay('category_menu', 'id');
         });
         
+        document.getElementById('other_category').addEventListener('click', function () {
+            toggleDisplay('others', 'id');
+            toggleDisplay('modal-overlay', 'class');
+        });
+
+        const categories = document.querySelectorAll('.input_container--categories');
+        categories.forEach(category => {
+            category.addEventListener('click', function () {
+                toggleDisplay('step3', 'id');
+                toggleDisplay('modal-overlay', 'class');
+                toggleDisplay('category_menu', 'id');
+
+                document.getElementById('category_lawyer').innerText = this.innerText;
+            });
+        });
+
+        const reviews = document.querySelectorAll('.open_review');
+        reviews.forEach(review => {
+            review.addEventListener('click', function () {
+                document.getElementById('review_photo').src = lawyerDatas[this.dataset.profle].img;
+                document.getElementById('review_name').innerText = lawyerDatas[this.dataset.profle].name;
+                document.getElementById('review_location').innerText = lawyerDatas[this.dataset.profle].location;
+                document.getElementById('review_law').innerText = lawyerDatas[this.dataset.profle].law;
+
+                toggleDisplay('review_modal', 'id');
+                toggleDisplay('modal-overlay', 'class');
+            });
+        });
+
+        document.getElementById('close1').addEventListener('click', function () {
+            toggleDisplay('step3', 'id');
+            toggleDisplay('modal-overlay', 'class');
+
+            document.getElementById('category_lawyer').innerText = "";
+        });
+
+        document.getElementById('close2').addEventListener('click', function () {
+            toggleDisplay('others', 'id');
+            toggleDisplay('modal-overlay', 'class');
+        });
+
+        function closeReviewModal() {
+            document.getElementById('review_photo').src = "";
+            document.getElementById('review_name').innerText = "";
+            document.getElementById('review_location').innerText = "";
+            document.getElementById('review_law').innerText = "";
+
+            toggleDisplay('review_modal', 'id');
+            toggleDisplay('modal-overlay', 'class');
+        }
+
+        document.getElementById('close3').addEventListener('click', function () {
+            closeReviewModal()
+        });
+
+        document.getElementById('review_close').addEventListener('click', function () {
+            closeReviewModal()
+        });
     });
 </script>
